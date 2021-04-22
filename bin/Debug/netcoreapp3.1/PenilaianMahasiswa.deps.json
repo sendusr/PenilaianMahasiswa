@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "PenilaianMahasiswa/1.0.0": {
+        "runtime": {
+          "PenilaianMahasiswa.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "PenilaianMahasiswa/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

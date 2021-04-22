@@ -1,0 +1,13 @@
+C:\Users\sendus-pc\source\repos\PenilaianMahasiswa\bin\Debug\netcoreapp3.1\PenilaianMahasiswa.exe
+C:\Users\sendus-pc\source\repos\PenilaianMahasiswa\bin\Debug\netcoreapp3.1\PenilaianMahasiswa.deps.json
+C:\Users\sendus-pc\source\repos\PenilaianMahasiswa\bin\Debug\netcoreapp3.1\PenilaianMahasiswa.runtimeconfig.json
+C:\Users\sendus-pc\source\repos\PenilaianMahasiswa\bin\Debug\netcoreapp3.1\PenilaianMahasiswa.runtimeconfig.dev.json
+C:\Users\sendus-pc\source\repos\PenilaianMahasiswa\bin\Debug\netcoreapp3.1\PenilaianMahasiswa.dll
+C:\Users\sendus-pc\source\repos\PenilaianMahasiswa\bin\Debug\netcoreapp3.1\PenilaianMahasiswa.pdb
+C:\Users\sendus-pc\source\repos\PenilaianMahasiswa\obj\Debug\netcoreapp3.1\PenilaianMahasiswa.csprojAssemblyReference.cache
+C:\Users\sendus-pc\source\repos\PenilaianMahasiswa\obj\Debug\netcoreapp3.1\PenilaianMahasiswa.AssemblyInfoInputs.cache
+C:\Users\sendus-pc\source\repos\PenilaianMahasiswa\obj\Debug\netcoreapp3.1\PenilaianMahasiswa.AssemblyInfo.cs
+C:\Users\sendus-pc\source\repos\PenilaianMahasiswa\obj\Debug\netcoreapp3.1\PenilaianMahasiswa.csproj.CoreCompileInputs.cache
+C:\Users\sendus-pc\source\repos\PenilaianMahasiswa\obj\Debug\netcoreapp3.1\PenilaianMahasiswa.dll
+C:\Users\sendus-pc\source\repos\PenilaianMahasiswa\obj\Debug\netcoreapp3.1\PenilaianMahasiswa.pdb
+C:\Users\sendus-pc\source\repos\PenilaianMahasiswa\obj\Debug\netcoreapp3.1\PenilaianMahasiswa.genruntimeconfig.cache
