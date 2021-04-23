@@ -10,7 +10,8 @@ namespace PenilaianMahasiswa
         public string Name { get; set; }
 
         public List<MatKul> MatKuls { get; set; }
-     
+  
+
         public Mahasiswa(string id, string name)
         {
             Id = id;
@@ -19,11 +20,6 @@ namespace PenilaianMahasiswa
 
         }
 
-        //public Mahasiswa(string id, string name, List<MatKul> matKuls)
-        //{
-        //    Id = id;
-        //    Name = name;
-        //    MatKuls = matKuls;
-        //}
+        
     }
 }

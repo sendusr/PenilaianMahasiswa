@@ -7,41 +7,11 @@ namespace PenilaianMahasiswa
     {
         static void Main(string[] args)
         {
-            List<Mahasiswa> M = new List<Mahasiswa>();
+            List<Mahasiswa> m = new List<Mahasiswa>();
             List<MatKul> matkuls = new List<MatKul>();
-            
+
             Console.Clear();
-            while (true)
-            {
-                ShowMenu();
-                int option = Convert.ToInt32(Console.ReadLine());
-                Console.Clear();
-                switch (option)
-                {
-                    case 1:
-                        AddMhs(M);
-                        break;
-                    case 2:
-                        if (M.Count == 0)
-                            Console.WriteLine("Data masih kosong!");
-                        else
-                            TampilMahasiswa(M);
-                        break;
-                    case 3:
-                        AddMataKuliah(M);
-
-                        break;
-                    case 4:
-                        DisplayNilai(M);
-
-                        break;
-
-
-                    default:
-                        continue;
-
-                }
-            }
+            ShowSelection(m);
         }
 
         private static void ShowMenu()
@@ -52,60 +22,111 @@ namespace PenilaianMahasiswa
             Console.WriteLine("3. Add MK");
             Console.WriteLine("4. Display Nilai");
         }
-
-        private static void DisplayNilai(List<Mahasiswa> M)
+        private static void ShowSelection(List<Mahasiswa> m)
         {
-            if (M.Count == 0)
-                Console.WriteLine("Data mahasiswa masih kosong!");
-            else
+            while (true)
             {
-                TampilMahasiswa(M);
-                Console.WriteLine("Masukan ID Mahasiswa: (Hint: mcc-xx)");
-                string pilihdata2 = Console.ReadLine();
-                //if (matkuls.Count==0) // nah ini merujuk pada line 61, tadinya kalau bisa di cek list MK mahasiswa tsb kosong
-                // maunya di kasih warning gini:                   
-                //   Console.WriteLine("Mahasiswa ini belum mendaftarkan pada matkul apapun!");
-                // tapi count matkuls akan selalu 0, padahal udah di isi ¯\_(ツ)_/¯
+                ShowMenu();
+
                 try
                 {
-                    int index2 = M.FindIndex(a => a.Id.Equals(pilihdata2, StringComparison.InvariantCultureIgnoreCase));
-                    List<MatKul> matkuls2 = new List<MatKul>();
-                    Mahasiswa penampungMKst = M.ElementAt(index2);
-                    matkuls2 = penampungMKst.MatKuls;
-                    Console.WriteLine($"\nID Mahasiswa : {penampungMKst.Id}");
-                    Console.WriteLine($"Nama Mahasiswa : {penampungMKst.Name}");
-                    Console.WriteLine("===============Daftar Nilai==============");
-                    foreach (MatKul mkt in matkuls2)
+                    int option = Convert.ToInt32(Console.ReadLine());
+                    Console.Clear();
+                    switch (option)
                     {
+                        case 1:
+                            AddMhs(m);
+                            break;
+                        case 2:
+                            if (m.Count == 0)
+                                Console.WriteLine("Data masih kosong!");
+                            else
+                                TampilMahasiswa(m);
+                            break;
+                        case 3:
+                            AddMataKuliah(m);
 
-
-                        Console.WriteLine($"Mata Kuliah : {mkt.NamaMK}");
-                        Console.WriteLine($"Nilai : {mkt.Nilai}\n");
+                            break;
+                        case 4:
+                            DisplayNilai(m);
+                            break;
+                        default:
+                            continue;
 
                     }
                 }
                 catch (Exception)
                 {
 
-                    Console.WriteLine("Data tidak ditemukan, mohon inputkan sesuai ID mahasiswa (Hint: mcc-xx)");
+                    Console.WriteLine("Inputan menu salah!");
                 }
+
             }
         }
 
-        private static void AddMataKuliah(List<Mahasiswa> M)
+        
+
+        private static void DisplayNilai(List<Mahasiswa> m)
         {
-            if (M.Count == 0)
+            if (m.Count == 0)
                 Console.WriteLine("Data mahasiswa masih kosong!");
             else
             {
-                TampilMahasiswa(M);
+                TampilMahasiswa(m);
+                Console.WriteLine("Masukan ID Mahasiswa: (Hint: mcc-xx)");
+                string pilihdata2 = Console.ReadLine();
+
+                    try
+                    {
+                        int index2 = m.FindIndex(a => a.Id.Equals(pilihdata2, StringComparison.InvariantCultureIgnoreCase));
+                        List<MatKul> matkuls2 = new List<MatKul>();
+                        Mahasiswa penampungMKst = m.ElementAt(index2);
+                        matkuls2 = penampungMKst.MatKuls;
+                    if (penampungMKst.MatKuls.Count() == 0)
+                    {
+                        Console.WriteLine("Mahasiswa ini belum mendaftarkan matakuliah: ");
+                        Console.WriteLine($"ID Mahasiswa : {penampungMKst.Id}");
+                        Console.WriteLine($"Nama Mahasiswa : {penampungMKst.Name}\n");
+                    }
+                        
+                    else
+                    {
+                        Console.WriteLine($"\nID Mahasiswa : {penampungMKst.Id}");
+                        Console.WriteLine($"Nama Mahasiswa : {penampungMKst.Name}");
+                        Console.WriteLine("===============Daftar Nilai==============");
+                        foreach (MatKul mkt in matkuls2)
+                        {
+
+
+                            Console.WriteLine($"Mata Kuliah : {mkt.NamaMK}");
+                            Console.WriteLine($"Nilai : {mkt.Nilai}\n");
+
+                        }
+                    }
+                        
+                    }
+                    catch (Exception)
+                    {
+
+                        Console.WriteLine("Data tidak ditemukan, mohon inputkan sesuai ID mahasiswa (Hint: mcc-xx)");
+                    }
+            }
+        }
+
+        private static void AddMataKuliah(List<Mahasiswa> m)
+        {
+            if (m.Count == 0)
+                Console.WriteLine("Data mahasiswa masih kosong!");
+            else
+            {
+                TampilMahasiswa(m);
                 Console.WriteLine("Masukan ID Mahasiswa: (Hint: mcc-xx)");
                 string pilihdata = Console.ReadLine();
                 try
                 {
-                    int index = M.FindIndex(a => a.Id.Equals(pilihdata, StringComparison.InvariantCultureIgnoreCase));
+                    int index = m.FindIndex(a => a.Id.Equals(pilihdata, StringComparison.InvariantCultureIgnoreCase));
 
-                    Mahasiswa penampungMKs = M.ElementAt(index);
+                    Mahasiswa penampungMKs = m.ElementAt(index);
                     Console.WriteLine("\n-----Input Matakuliah untuk mahasiswa (" + penampungMKs.Id + "/" + penampungMKs.Name + ")-------\n");
                     Console.WriteLine("Masukan Matakuliah: ");
                     string mk = Console.ReadLine();
@@ -114,9 +135,6 @@ namespace PenilaianMahasiswa
                     {
                         double nilai = Convert.ToDouble(Console.ReadLine());
                         penampungMKs.MatKuls.Add(new MatKul(mk, nilai));
-                        // var s = M[2].Count;// disini saya mau coba untuk menampilkan size matakuliah didalam list mahasiswa tapi gk tau gmn caranya
-                        // M.Sum(x => x.Count());       karna kalau matkuls.count itu malah 0 padahal udah terisi
-                        //Console.WriteLine(s);
                     }
                     catch (Exception)
                     {
@@ -134,22 +152,22 @@ namespace PenilaianMahasiswa
             }
         }
 
-        private static void AddMhs(List<Mahasiswa> M)
+        private static void AddMhs(List<Mahasiswa> m)
         {
-            int sizeoflist = M.Count;
+            int sizeoflist = m.Count;
             Console.WriteLine("Masukan Nama: ");
             string name = Console.ReadLine();
-            string IdPanjang = "MCC-4" + (sizeoflist + 1); //id mahasiswa auto generate
-            M.Add(new Mahasiswa(IdPanjang, name));
-            Console.WriteLine("ID mahasiswa : " + IdPanjang);
+            string idPanjang = "MCC-4" + (sizeoflist + 1); //id mahasiswa auto generate
+            m.Add(new Mahasiswa(idPanjang, name));
+            Console.WriteLine("ID mahasiswa : " + idPanjang);
             Console.WriteLine("Nama Maasiswa : " + name);
             Console.WriteLine("===========Tambah data berhasil!========\n");
         }
 
-        private static void TampilMahasiswa(List<Mahasiswa> M)
+        private static void TampilMahasiswa(List<Mahasiswa> m)
         {
             Console.WriteLine("Data Mahasiswa : \n");
-            foreach (Mahasiswa mahasiswa in M)
+            foreach (Mahasiswa mahasiswa in m)
             {
                 Console.WriteLine($"ID: {mahasiswa.Id}");
                 Console.WriteLine($"Name: {mahasiswa.Name}\n");
